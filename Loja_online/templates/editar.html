@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+</head>
+<body>
+    <h1>Editar Produto</h1>
+    <form method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" value="{{ produto.nome }}" required>
+        <br>
+        <label for="descricao">Descrição:</label>
+        <textarea name="descricao" id="descricao" required>{{ produto.descricao }}</textarea>
+        <br>
+        <label for="preco">Preço:</label>
+        <input type="text" name="preco" id="preco" value="{{ produto.preco }}" required>
+        <br>
+        <label for="categoria_id">Categoria:</label>
+        <select name="categoria_id" id="categoria_id" required onchange="updateSubcategorias(this.value)">
+            {% for categoria in categorias %}
+            <option value="{{ categoria.id }}" {% if produto.categoria_id == categoria.id %}selected{% endif %}>
+                {{ categoria.nome }}
+            </option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="subcategoria_id">Subcategoria:</label>
+        <select name="subcategoria_id" id="subcategoria_id" required>
+            <!-- As opções serão preenchidas pelo JavaScript -->
+        </select>
+        <br>
+        <label for="imagem_url">Imagem URL:</label>
+        <input type="text" name="imagem_url" id="imagem_url" value="{{ produto.imagem_url }}" required>
+        <br>
+        <input type="submit" value="Atualizar Produto">
+    </form>
+    <br>
+    <a href="{{ url_for('backoffice') }}">Voltar para o Backoffice</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Função para buscar e atualizar as subcategorias
+            function updateSubcategorias(categoriaId) {
+                fetch('/subcategorias/' + categoriaId)
+                    .then(response => response.json())
+                    .then(data => {
+                        let subcategoriaSelect = document.getElementById('subcategoria_id');
+                        subcategoriaSelect.innerHTML = '';
+                        data.subcategorias.forEach(subcategoria => {
+                            let option = document.createElement('option');
+                            option.value = subcategoria.id;
+                            option.text = subcategoria.nome;
+                            if (subcategoria.id === {{ produto.subcategoria_id }}) {
+                                option.selected = true;
+                            }
+                            subcategoriaSelect.add(option);
+                        });
+                    });
+            }
+
+            // Inicializa as subcategorias quando a página carrega
+            updateSubcategorias(document.getElementById('categoria_id').value);
+        });
+    </script>
+</body>
+</html>

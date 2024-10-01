@@ -1,0 +1,19 @@
+{% include "cabecalho.html"%}
+
+    <div class="container">
+        <section class="carrinho">
+            <h2>Itens no Carrinho</h2>
+            <div class="product-grid">
+                {% for item in itens_carrinho %}
+                <div class="product-card">
+                    <img src="{{ item.imagem_url }}" alt="{{ item.nome }}">
+                    <h3>{{ item.nome }}</h3>
+                    <p class="price">ECV{{ item.preco }}</p>
+                    <p>Quantidade: {{ item.quantidade }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+{% include "rodape.html"%}
+    

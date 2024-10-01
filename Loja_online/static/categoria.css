@@ -1,0 +1,78 @@
+/* Estilo das seções */
+.container {
+    padding: 20px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-card {
+    flex: 1 1 calc(25% - 20px); /* Ajuste a largura conforme necessário */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.product-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.product-card a:hover {
+    text-decoration: underline;
+}
+
+.price {
+    font-size: 20px;
+    color: #e53935;
+}
+
+.buy-now-btn {
+    background-color: #ff6f61; /* Cor de fundo vibrante (vermelho coral) */
+    color: white; /* Texto em branco */
+    border: none; /* Sem bordas */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mão ao passar o mouse */
+    font-size: 1em; /* Tamanho da fonte */
+    font-weight: bold; /* Fonte em negrito */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para o fundo e transformação */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+.buy-now-btn:hover {
+    background-color: #ff4b3a; /* Cor mais escura ao passar o mouse */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão ao passar o mouse */
+}
+
+.buy-now-btn:active {
+    background-color: #e94331; /* Cor ainda mais escura ao clicar */
+    transform: scale(0.95); /* Reduz o tamanho do botão ao clicar */
+}
+
+.buy-now-btn:focus {
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Adiciona uma sombra ao foco */
+}

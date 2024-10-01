@@ -1,0 +1,53 @@
+{% include "cabecalho.html"%}
+
+<body>
+    <h1>Criar/Editar Perfil</h1>
+    <form action="{{ url_for('criar_perfil') }}" method="POST" class="form-container">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="{{ usuario.nome if usuario else '' }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value="{{ usuario.email if usuario else '' }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="morada">Morada:</label>
+            <input type="text" name="morada" id="morada" value="{{ usuario.morada if usuario else '' }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="endereco">Endereço:</label>
+            <input type="text" name="endereco" id="endereco" value="{{ usuario.endereco if usuario else '' }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="foto_perfil">Foto de Perfil (URL):</label>
+            <input type="text" name="foto_perfil" id="foto_perfil" value="{{ usuario.foto_perfil if usuario else '' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="cartao_numero">Número do Cartão:</label>
+            <input type="text" name="cartao_numero" id="cartao_numero" value="{{ usuario.cartao_numero if usuario else '' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="cartao_validade">Validade do Cartão:</label>
+            <input type="text" name="cartao_validade" id="cartao_validade" value="{{ usuario.cartao_validade if usuario else '' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="cartao_cvv">CVV do Cartão:</label>
+            <input type="text" name="cartao_cvv" id="cartao_cvv" value="{{ usuario.cartao_cvv if usuario else '' }}">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Salvar" class="btn-submit">
+        </div>
+    </form>
+</body>
+
+</body>
+</html>

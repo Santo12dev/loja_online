@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estatistica.css') }}">
+    <title>Estatísticas</title>
+</head>
+<body>
+    <h1>Estatísticas do Site</h1>
+
+    <h2>Visualizações de Página</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Página</th>
+                <th>Visualizações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for view in page_views %}
+                <tr>
+                    <td>{{ view.page_name }}</td>
+                    <td>{{ view.view_count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Cliques</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Botão</th>
+                <th>Cliques</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for click in clicks %}
+                <tr>
+                    <td>{{ click.button_name }}</td>
+                    <td>{{ click.click_count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Produtos Mais Vendidos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade Vendida</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos_mais_vendidos %}
+                <tr>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.total_quantity }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

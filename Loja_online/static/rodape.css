@@ -1,0 +1,113 @@
+/* rodape.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    background-color: #1f3958;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-media a {
+    color: #fff;
+    margin-bottom: 10px;
+    text-decoration:none;
+    font-size: 20px;
+    
+}
+
+.social-media a:hover {
+    color: #f0c14b; /* Cor amarela da Amazon para hover */
+}
+
+.contact-info,
+.contact-form {
+    max-width: 300px;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact-info p,
+.contact-form label,
+.contact-form textarea {
+    margin: 5px 0;
+}
+
+.contact-info a,
+.contact-form a {
+    color: #f0c14b;
+    text-decoration: none;
+}
+
+.contact-info a:hover,
+.contact-form a:hover {
+    text-decoration: underline;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color:    #ddb347;
+    color: #111;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background-color: #ddb347; /* Cor amarela mais escura para hover */
+}
+
+.footer-bottom {
+    background-color: #1f3958;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 12px;
+}

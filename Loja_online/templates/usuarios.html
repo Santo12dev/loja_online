@@ -1,0 +1,37 @@
+{% include "cabecalho.html"%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='usuarios.css') }}">
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Morada</th>
+                <th>Endereço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.username }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.morada }}</td>
+                    <td>{{ usuario.endereco }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_usuario', id=usuario.id) }}">Editar</a> - 
+                        <a href="{{ url_for('remover_usuario', id=usuario.id) }}">Remover</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('backoffice') }}">Voltar ao Backoffice</a>
+</body>
+</html>
