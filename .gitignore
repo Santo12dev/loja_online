@@ -1,0 +1,34 @@
+# Ignorar o ambiente virtual do Python
+venv/
+
+# Ignorar arquivos de cache do Python
+__pycache__/
+*.py[cod]
+
+# Ignorar arquivos de banco de dados locais (caso existam)
+*.db
+
+# Ignorar arquivos de configuração com informações sensíveis
+config.py
+.env
+
+# Ignorar logs e backups de banco de dados
+*.log
+*.sql
+*.sqlite
+*.bak
+
+# Ignorar pastas de uploads (caso use para salvar arquivos temporariamente)
+uploads/
+
+# Ignorar arquivos de conexão do MySQL (se houver algum script específico de conexão)
+mysql-connector-java-*.jar
+
+# Ignorar arquivos do IDE (VS Code ou outros)
+.vscode/
+.idea/
+
+# Ignorar outros arquivos temporários ou desnecessários
+*.swp
+*.swo
+.DS_Store

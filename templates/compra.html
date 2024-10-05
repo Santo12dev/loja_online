@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Compra</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='compra.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+            const paymentDetails = document.querySelectorAll('.payment-details');
+
+            function updatePaymentDetails() {
+                paymentDetails.forEach(detail => detail.style.display = 'none'); // Hide all details
+                const selectedMethod = document.querySelector('input[name="payment-method"]:checked');
+                if (selectedMethod) {
+                    document.getElementById(`${selectedMethod.value}-details`).style.display = 'block'; // Show selected details
+                }
+            }
+
+            paymentMethods.forEach(method => method.addEventListener('change', updatePaymentDetails));
+        });
+    </script>
+</head>
+<body>
+    <!-- Cabeçalho e navegação aqui -->
+
+    <main>
+        <div class="purchase-form-container">
+            <h1>Efetua o seu Pagamento</h1>
+            <form action="processar_compra.php" method="post">
+                <div class="form-group">
+                    <label for="country">Escolha a sua ilha :</label>
+                    <select id="country" name="country" required>
+                        <option value="br">Santo Antao</option>
+                        <option value="us">Sao Vicente</option>
+                        <option value="pt">Sao Niculau</option>
+                        <option value="pt">Sal</option>
+                        <option value="pt">Boa Vista</option>
+                        <option value="pt">Maio</option>
+                        <option value="pt">Santiago</option>
+                        <option value="pt">Fogo</option>
+                        <option value="pt">Brava</option>
+                        <!-- Adicione mais opções conforme necessário -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment-method">Método de Pagamento:</label>
+                    <div class="payment-methods">
+                        <label>
+                            <input type="radio" name="payment-method" value="credit-card" required>
+                            <i class="fab fa-cc-visa"></i> Cartão de Crédito
+                        </label>
+                        <label>
+                            <input type="radio" name="payment-method" value="paypal" required>
+                            <i class="fab fa-paypal"></i> PayPal
+                        </label>
+                        <label>
+                            <input type="radio" name="payment-method" value="bank-transfer" required>
+                            <i class="fas fa-university"></i> Transferência Bancária
+                        </label>
+                    </div>
+                </div>
+
+                <div id="credit-card-details" class="payment-details">
+                    <h2>Detalhes do Cartão de Crédito</h2>
+                    <div class="form-group">
+                        <label for="card-number">Número do Cartão:</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="Número do cartão" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-expiry">Data de Validade:</label>
+                        <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-cvc">CVC:</label>
+                        <input type="text" id="card-cvc" name="card-cvc" placeholder="Código de segurança" required>
+                    </div>
+                </div>
+
+                <div id="paypal-details" class="payment-details">
+                    <h2>Detalhes do PayPal</h2>
+                    <div class="form-group">
+                        <label for="paypal-email">E-mail do PayPal:</label>
+                        <input type="text" id="paypal-email" name="paypal-email" placeholder="Seu e-mail do PayPal" required>
+                    </div>
+                </div>
+
+                <div id="bank-transfer-details" class="payment-details">
+                    <h2>Detalhes da Transferência Bancária</h2>
+                    <div class="form-group">
+                        <label for="bank-account">Número da Conta:</label>
+                        <input type="text" id="bank-account" name="bank-account" placeholder="Número da conta" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bank-routing">Código de Roteamento:</label>
+                        <input type="text" id="bank-routing" name="bank-routing" placeholder="Código de roteamento" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Endereço de Entrega:</label>
+                    <input type="text" id="address" name="address" placeholder="Seu endereço completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Cidade:</label>
+                    <input type="text" id="city" name="city" placeholder="Sua Cidade" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="postal-code">Código Postal:</label>
+                    <input type="text" id="postal-code" name="postal-code" placeholder="Codigo"required>
+                </div>
+
+                <button type="submit">Confirmar Compra</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

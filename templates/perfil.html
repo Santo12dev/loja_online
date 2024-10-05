@@ -1,0 +1,16 @@
+{% include "cabecalho.html"%}
+
+<body>
+    <h1>Perfil</h1>
+    <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+    <p><strong>Email:</strong> {{ usuario.email }}</p>
+    <p><strong>Morada:</strong> {{ usuario.morada }}</p>
+    <p><strong>Endereço:</strong> {{ usuario.endereco }}</p>
+    <p><strong>Foto de Perfil:</strong> <img src="{{ usuario.foto_perfil }}" alt="Foto de Perfil" style="width: 150px; height: auto;"></p>
+    <p><strong>Número do Cartão:</strong> {{ usuario.cartao_numero }}</p>
+    <p><strong>Validade do Cartão:</strong> {{ usuario.cartao_validade }}</p>
+    <p><strong>CVV do Cartão:</strong> {{ usuario.cartao_cvv }}</p>
+
+    <a href="{{ url_for('criar_perfil') }}">Editar Perfil</a>
+</body>
+</html>

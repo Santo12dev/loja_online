@@ -1,0 +1,241 @@
+/* styles.css */
+
+/* Estilo do cabeçalho e navbar */
+header {
+    background-color:#1f3958;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.logo a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #ff6600;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.search-bar button i {
+    font-size: 16px;
+}
+
+/* Estilo das seções */
+.container {
+    padding: 20px;
+}
+
+.category-grid, .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category-card, .product-card {
+    flex: 1 1 calc(25% - 20px); /* Ajuste a largura conforme necessário */
+    box-sizing: border-box;
+}
+
+.category-card img, .product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.price {
+    font-weight: bold;
+}
+
+
+.categories {
+    padding: 20px;
+    background-color:#f8f8f8;
+}
+
+.categories h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px; /* Reduz o espaçamento entre os cards */
+    justify-content: center;
+    align-items: center; /* Garante que os cartões estejam centralizados verticalmente */
+    max-width: 800px; /* Define uma largura máxima para o grid */
+    margin: 0 auto; /* Centraliza o grid horizontalmente */
+}
+
+.category-card {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%; /* Forma circular */
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%; /* Imagem dentro da bolinha */
+}
+
+.category-card h3 {
+    margin: 0;
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+    text-align: center; /* Centraliza o texto */
+}
+
+
+/* Estilo para a seção de produtos */
+.products {
+    padding: 20px;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.product-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.product-card a:hover {
+    text-decoration: underline;
+}
+
+.price {
+    font-size: 20px;
+    color: #e53935;
+}
+.buy-now-btn {
+    background-color: #ff6600; /* Cor de fundo vibrante (vermelho coral) */
+    color: white; /* Texto em branco */
+    border: none; /* Sem bordas */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mão ao passar o mouse */
+    font-size: 1em; /* Tamanho da fonte */
+    font-weight: bold; /* Fonte em negrito */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para o fundo e transformação */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+.buy-now-btn:hover {
+    background-color:  #ff6600;; /* Cor mais escura ao passar o mouse */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão ao passar o mouse */
+}
+
+.buy-now-btn:active {
+    background-color: #ff6600;; /* Cor ainda mais escura ao clicar */
+    transform: scale(0.95); /* Reduz o tamanho do botão ao clicar */
+}
+
+.buy-now-btn:focus {
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Adiciona uma sombra ao foco */
+}

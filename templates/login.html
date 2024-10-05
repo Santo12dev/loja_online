@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1> Faca o seu Login</h1>
+            <form method="post">
+                <div class="textbox">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="textbox">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+            <p class="register-link">Não tem uma conta? <a href="{{ url_for('register') }}">Registrar-se</a></p>
+            
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

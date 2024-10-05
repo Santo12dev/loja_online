@@ -1,0 +1,32 @@
+{% include "cabecalho.html" %}
+
+<div class="container">
+    
+    <section class="categories">
+        <h2>Produtos {{ categoria.nome }}</h2>
+        <div class="product-grid">
+            {% if produtos %}
+                {% for produto in produtos %}
+                <div class="product-card">
+                    <a href="{{ url_for('produto', id=produto.id) }}">
+                        <img src="{{ produto.imagem_url }}" alt="{{ produto.nome }}">
+                    </a>
+                    <h3><a href="{{ url_for('produto', id=produto.id) }}">{{ produto.nome }}</a></h3>
+                    <p class="price">ECV {{ produto.preco }}</p>
+                    <a href="{{ url_for('compra') }}" class="buy-now-btn">Comprar</a>
+                        
+                   
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum produto encontrado nesta categoria.</p>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+<footer>
+    <a href="{{ url_for('index') }}" class="btn">Voltar</a>
+</footer>
+
+{% include "rodape.html" %}

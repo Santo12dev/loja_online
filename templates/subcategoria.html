@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subcategoria</title>
+</head>
+<body>
+    <h1>Produtos na Subcategoria</h1>
+    <div>
+        <h2>Subcategoria: {{ subcategoria.nome }}</h2>
+    </div>
+    <div>
+        <h2>Produtos</h2>
+        <ul>
+            {% if produtos %}
+                {% for produto in produtos %}
+                <li>
+                    <a href="{{ url_for('produto', id=produto.id) }}">{{ produto.nome }}</a>
+                    - R$ {{ produto.preco }}
+                </li>
+                {% endfor %}
+            {% else %}
+                <li>Nenhum produto encontrado nesta subcategoria.</li>
+            {% endif %}
+        </ul>
+    </div>
+    <a href="{{ url_for('index') }}">Voltar para a lista de produtos</a>
+</body>
+</html>
+
